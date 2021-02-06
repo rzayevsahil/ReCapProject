@@ -23,8 +23,9 @@ namespace ConsoleUI
             carManager.GetAll();
 
             carManager.GetById(1);
+            carManager.GetById(2);
 
-            
+
 
 
 
