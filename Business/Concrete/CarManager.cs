@@ -10,70 +10,72 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
-        IBrandDal _brandDal;
-        IColorDal _colorDal;
-
+        
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
         }
-        public CarManager(IBrandDal brandDal)
+
+        public void Add(Car car)
         {
-            _brandDal = brandDal;
+            if (car.DailyPrice>0)
+            {
+                _carDal.Add(car);
+                Console.WriteLine("** " + car.Description + " ** araba eklendi.");
+            }
+            else
+            {
+                Console.WriteLine("Günlük fiyatınız 0 dan büyük olmalıdır sisteme girilen deger : {car.DailyPrice}");
+            }
         }
-        public CarManager(IColorDal colorDal)
+                
+        public void Delete(Car car)
         {
-            _colorDal = colorDal;
-        }
-        
-        public void BrandAdd(Brand brand)
-        {
-            _brandDal.Add(brand);
-        }
-        
-        public void CarAdd(Car car)
-        {
-            _carDal.Add(car);
+            _carDal.Delete(car);
+            Console.WriteLine("** " + car.Description + " ** araba silindi.");
         }
 
-        
-
-        public void ColorAdd(Color color)
+        public void Update(Car car)
         {
-            _colorDal.Add(color);
+            if (car.DailyPrice > 0)
+            {
+                _carDal.Update(car);
+                Console.WriteLine("** " + car.Description + " ** araba güncellendi.");
+            }
+            else
+            {
+                Console.WriteLine($"araba güncelleme aşamasında günlük fiyat hatalı girildi . O dan büyük giriniz girdiginiz deger {car.DailyPrice}");
+            }
+            
         }
 
         public List<Car> GetAll()
         {
+            Console.WriteLine("*********** Car List ***********");
             return _carDal.GetAll();
         }
-
-        public List<Brand> GetAllBrand()
-        {
-            return _brandDal.GetAll();
-        }
-
-        public List<Color> GetAllColor()
-        {
-            return _colorDal.GetAll();
-        }
-
+        
         public List<Car> GetCarByDailyPrice(decimal min, decimal max)
         {
-            return _carDal.GetAll(p => p.DailyPrice >= min && p.DailyPrice <= max);
+            Console.WriteLine("*********** Car List by Daily Price ***********");
+            return _carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max);
         }
 
         
-        public List<Car> GettCarByBrandId(int brandId)
+        public List<Car> GetCarByBrandId(int brandId)
         {
-            return _carDal.GetAll(p => p.BrandId == brandId );
+            return _carDal.GetAll(c => c.BrandId == brandId );
         }
 
-        public List<Car> GettCarByColorId(int colorId)
+        public List<Car> GetCarByColorId(int colorId)
         {
-            return _carDal.GetAll(p => p.ColorId == colorId);
+            return _carDal.GetAll(c => c.ColorId == colorId);
         }
 
-        
+        public Car GetById(int id)
+        {
+            return _carDal.Get(c => c.Id == id);
+        }
+
     }
 }
