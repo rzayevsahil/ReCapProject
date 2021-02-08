@@ -10,20 +10,37 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
+        IBrandDal _brandDal;
+        IColorDal _colorDal;
 
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
         }
-
-        public void Add(Car car)
+        public CarManager(IBrandDal brandDal)
+        {
+            _brandDal = brandDal;
+        }
+        public CarManager(IColorDal colorDal)
+        {
+            _colorDal = colorDal;
+        }
+        
+        public void BrandAdd(Brand brand)
+        {
+            _brandDal.Add(brand);
+        }
+        
+        public void CarAdd(Car car)
         {
             _carDal.Add(car);
         }
 
-        public void Delete(Car car)
+        
+
+        public void ColorAdd(Color color)
         {
-            _carDal.Delete(car);
+            _colorDal.Add(color);
         }
 
         public List<Car> GetAll()
@@ -31,14 +48,32 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public Car GetById(int id)
+        public List<Brand> GetAllBrand()
         {
-            return _carDal.GetById(id);
+            return _brandDal.GetAll();
         }
 
-        public void Update(Car car)
+        public List<Color> GetAllColor()
         {
-            _carDal.Update(car);
+            return _colorDal.GetAll();
         }
+
+        public List<Car> GetCarByDailyPrice(decimal min, decimal max)
+        {
+            return _carDal.GetAll(p => p.DailyPrice >= min && p.DailyPrice <= max);
+        }
+
+        
+        public List<Car> GettCarByBrandId(int brandId)
+        {
+            return _carDal.GetAll(p => p.BrandId == brandId );
+        }
+
+        public List<Car> GettCarByColorId(int colorId)
+        {
+            return _carDal.GetAll(p => p.ColorId == colorId);
+        }
+
+        
     }
 }
