@@ -2,7 +2,7 @@
 ---
 ---
 ---
-**Bu proje _Araba Kiralama Sistemi_ ile ilgili bir projedir.Proje hem Çok katmanlı, hem Kurumsal Mimariler, hem de SOLID prensiplerine dayalı bir projedir.Önümüzdeki süreçlerde de projeye eklemeler yapılarak daha güzel bir prole haline gelecektir.Kampda verilen adımlara uygun olarak gerçeklekleştirdiğim bu projeyi yakından inceleyelim.**
+**Bu proje _Araba Kiralama Sistemi_ ile ilgili bir projedir.Proje hem Çok katmanlı, hem Kurumsal Mimariler, hem de SOLID prensiplerine dayalı bir projedir.Önümüzdeki süreçlerde de projeye eklemeler yapılarak daha güzel bir proje haline getirilecektir.Kampda verilen adımlara uygun olarak gerçeklekleştirdiğim bu projeyi yakından inceleyelim.**
 ---
 ---
 ---
