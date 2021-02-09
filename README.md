@@ -29,6 +29,7 @@
 ![düzenle2](https://user-images.githubusercontent.com/58303745/107300410-e8e4a480-6a92-11eb-9a40-a716eb17ea92.jpg)
 * Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
 * Mavi kutucuk - Abstract klasörü içindeki interface'lerin implemente edildiği yer
+---
 ### 4._ConsoleUI Katmanı_ - Yaptığımız işlemlerin sonuçlarını göreceğimiz bir katman
 ![düzenle3](https://user-images.githubusercontent.com/58303745/107300886-c7d08380-6a93-11eb-9cd5-cf1a82d12cef.jpg)
 * Kırmızı kutucuk - ConsoleUI katmanının referans aldığı katmanlar
