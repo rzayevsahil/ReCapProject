@@ -1,8 +1,11 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -21,11 +24,11 @@ namespace Business.Concrete
             if (car.DailyPrice>0)
             {
                 _carDal.Add(car);
-                Console.WriteLine("** " + car.Description + " ** araba eklendi.");
+                Console.WriteLine("\n** " + car.Description + " ** araba eklendi.\n");
             }
             else
             {
-                Console.WriteLine("Günlük fiyatınız 0 dan büyük olmalıdır sisteme girilen deger : {car.DailyPrice}");
+                Console.WriteLine("\nGünlük fiyatınız 0 dan büyük olmalıdır sisteme girilen deger :" + car.DailyPrice + "\n");
             }
         }
                 
@@ -77,5 +80,9 @@ namespace Business.Concrete
             return _carDal.Get(c => c.Id == id);
         }
 
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
+        }
     }
 }

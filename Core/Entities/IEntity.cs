@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Abstract
+namespace COre.Entities
 {
-    public interface IEntity
+    public interface IEntity 
     {
     }
 }
