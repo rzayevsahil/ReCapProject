@@ -11,13 +11,15 @@
 * ### Öncelikler Proje 4 katmandan oluşmaktadır: Business, DataAccess, Entities ve ConcoleUI
 ![katmanlar](https://user-images.githubusercontent.com/58303745/107296848-9ce23180-6a8b-11eb-9824-6b5cf5891a63.jpg)
 ---
-### 1._Business Katmanı_ - Burada işle ilgili(iş kuralları) kodlar yer alır.Bu katman Abstract ve Concrete isimli klasörlerden oluşur.Abstract içinde soyut(yani interfaceler), Concrete içinde somut(yani class'lar) nesneler yer alır.
+### 1.<a href="https://github.com/mecazadam/ReCapProject/tree/master/Business" target="blank">_Business Katmanı_</a>- Burada işle ilgili(iş kuralları) kodlar yer alır.Bu katman Abstract ve Concrete isimli klasörlerden oluşur.Abstract içinde soyut(yani interfaceler), Concrete içinde somut(yani class'lar) nesneler yer alır.
+
 ![düzenle](https://user-images.githubusercontent.com/58303745/107298645-2a735080-6a8f-11eb-9e16-550b0dffbbb3.jpg)
 * Kırmızı kutucuk - Business katmanının referans aldığı katmanlar
 * Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
 * Mavi kutucuk - Abstract klasörü içindeki interface'lerin implemente edildiği yer
 ---
-### 2._DataAccess Katmanı_ - Veriye erişmek için gerekli kodlar yazılan bu katman Abstract(soyut) ve Concrete(somut) isimli klasörlerden oluşur.
+### 2. <a href="https://github.com/mecazadam/ReCapProject/tree/master/DataAccess" target="blank">_DataAccess Katmanı_</a>- Veriye erişmek için gerekli kodlar yazılan bu katman Abstract(soyut) ve Concrete(somut) isimli klasörlerden oluşur.
+
 ![düzenle1](https://user-images.githubusercontent.com/58303745/107299552-1fb9bb00-6a91-11eb-935b-28a678df82d5.jpg)
 * Kırmızı kutucuk - DataAccess katmanının referans aldığı katmanlar
 * Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
