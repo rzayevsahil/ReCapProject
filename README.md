@@ -18,7 +18,7 @@
 * Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
 * Mavi kutucuk - Abstract klasörü içindeki interface'lerin implemente edildiği yer
 ---
-### 2. <a href="https://github.com/mecazadam/ReCapProject/tree/master/DataAccess" target="blank">_DataAccess Katmanı_</a>- Veriye erişmek için gerekli kodlar yazılan bu katman Abstract(soyut) ve Concrete(somut) isimli klasörlerden oluşur.
+### 2.<a href="https://github.com/mecazadam/ReCapProject/tree/master/DataAccess" target="blank">_DataAccess Katmanı_</a>- Veriye erişmek için gerekli kodlar yazılan bu katman Abstract(soyut) ve Concrete(somut) isimli klasörlerden oluşur.
 
 ![düzenle1](https://user-images.githubusercontent.com/58303745/107299552-1fb9bb00-6a91-11eb-935b-28a678df82d5.jpg)
 * Kırmızı kutucuk - DataAccess katmanının referans aldığı katmanlar
@@ -27,12 +27,12 @@
 > _EntityFramework_ --> Veri tabanı tablolarıyla Nesne Yönelimli Programlama(OOP) arasında bir köprüdür.
 * Sarı kutucuk - NuGet paketi --> Başkalarının yazdığı kodları(paket diyoruz) kullanıyoruz.Bu kodların ortak tutulduğu ve yönetildiği ortamın adına denir. 
 ---
-### 3._Entities Katmanı_ - Veri tabanı nesneleri için oluşturulmuş olan bu katman Abstract(soyut) ve Concrete(somut) isimli klasörlerden oluşur.
+### 3.<a href="https://github.com/mecazadam/ReCapProject/tree/master/Entities" target="blank">_Entities Katmanı_</a> - Veri tabanı nesneleri için oluşturulmuş olan bu katman Abstract(soyut) ve Concrete(somut) isimli klasörlerden oluşur.
 ![düzenle2](https://user-images.githubusercontent.com/58303745/107300410-e8e4a480-6a92-11eb-9a40-a716eb17ea92.jpg)
 * Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
 * Mavi kutucuk - Abstract klasörü içindeki interface'lerin implemente edildiği yer
 ---
-### 4._ConsoleUI Katmanı_ - Yaptığımız işlemlerin sonuçlarını göreceğimiz bir katman
+### 4.<a href="https://github.com/mecazadam/ReCapProject/tree/master/ConsoleUI" target="blank">_ConsoleUI Katmanı_</a> - Yaptığımız işlemlerin sonuçlarını göreceğimiz bir katman
 ![düzenle3](https://user-images.githubusercontent.com/58303745/107300886-c7d08380-6a93-11eb-9cd5-cf1a82d12cef.jpg)
 * Kırmızı kutucuk - ConsoleUI katmanının referans aldığı katmanlar
 * Turuncu kutucuk - Bura main kısmıdır.Yani en sonda uyguladığımız işlemlerin sonucunu buradan görüyoruz.
