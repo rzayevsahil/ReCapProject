@@ -1,0 +1,24 @@
+﻿CREATE TABLE Users(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	FirstName VARCHAR(50),
+	LastName VARCHAR(50),
+	Email VARCHAR(50) UNIQUE,
+	Password VARCHAR(50) 
+)
+
+CREATE TABLE Customers(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	UserId INT,
+	CompanyName VARCHAR(50),
+	FOREIGN KEY (UserId) REFERENCES  Users(Id)
+)
+
+CREATE TABLE Rentals(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	CarId INT,
+	CustomerId INT,
+	RentDate DATETIME,
+	ReturnDate DATETIME,
+	FOREIGN KEY (CarId) REFERENCES Cars(Id),
+	FOREIGN KEY (CustomerId) REFERENCES Customers(Id)
+)
