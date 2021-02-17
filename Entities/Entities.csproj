@@ -2,11 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <UserSecretsId>bcac8e2b-9b5a-4db3-93c5-7e50a9701c2b</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />

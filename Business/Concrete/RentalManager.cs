@@ -37,7 +37,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalList);
         }
 
-        public IDataResult<List<RentalDetailDto>> GetRentalDetailsDto(int carId)
+        public IDataResult<List<RentalDetailDto>> GetRentalDetailsDto()
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());
         }
