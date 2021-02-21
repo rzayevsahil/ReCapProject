@@ -1,11 +1,14 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +27,14 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.DailyPrice <= 0)
-            {
-                return new ErrorResult(Messages.CarDailyPriceInvalid);
-            }
+            //bu kısmı fluent validator tarafına devrettim
+            //if (car.DailyPrice <= 0)
+            //{
+            //    return new ErrorResult(Messages.CarDailyPriceInvalid);
+            //}
+
+            
+            ValidationTool.Validate(new CarValidator(), car);
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -40,17 +47,17 @@ namespace Business.Concrete
 
         public IResult Update(Car car)
         {
-            if (car.DailyPrice <= 0)
-            {
-                return new ErrorResult(Messages.CarDailyPriceInvalid);
-            }
+            //if (car.DailyPrice <= 0)
+            //{
+            //    return new ErrorResult(Messages.CarDailyPriceInvalid);
+            //}
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
         }
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour==1)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }

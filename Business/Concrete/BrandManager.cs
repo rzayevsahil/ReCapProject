@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -22,10 +24,12 @@ namespace Business.Concrete
 
         public IResult Add(Brand brand)
         {
-            if (brand.BrandName.Length <= 2)
-            {
-                return new ErrorResult(Messages.BrandNameInvalid);
-            }
+            //bu kısmı fluent validator tarafına devrettim
+            //if (brand.BrandName.Length <= 2)
+            //{
+            //    return new ErrorResult(Messages.BrandNameInvalid);
+            //}
+            ValidationTool.Validate(new BrandValidator(), brand);
             _brandDal.Add(brand);
             return new SuccessResult(Messages.BrandAdded);
         }
