@@ -35,5 +35,7 @@ namespace Business.Constants
         public static string RentalList = "Kira listesi";
 
         public static string MaintenanceTime="Sistem bakımda";
+
+        public static string FailAddedImageLimit = "Resim limiti aşıldı";
     }
 }
