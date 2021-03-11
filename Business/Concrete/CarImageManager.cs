@@ -2,6 +2,8 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers;
@@ -29,6 +31,7 @@ namespace Business.Concrete
 
         [SecuredOperation("carImages.add,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
+        [CacheRemoveAspect("ICarImageService.Get")]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfImageLimit(carImage.CarId));
@@ -44,6 +47,7 @@ namespace Business.Concrete
 
         [SecuredOperation("carImages.delete,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
+        [CacheRemoveAspect("ICarImageService.Get")]
         public IResult Delete(CarImage carImage)
         {
             FileHelper.Delete(carImage.ImagePath);
@@ -51,17 +55,21 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-
+        [CacheAspect]
+        [PerformanceAspect(5)]
         public IDataResult<CarImage> Get(int id)
         {
             return new SuccessDataResult<CarImage>(_carImageDal.Get(p => p.Id == id));
         }
 
+        [CacheAspect]
+        [PerformanceAspect(10)]
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
+        [PerformanceAspect(5)]
         public IDataResult<List<CarImage>> GetImagesByCarId(int carId)
         {
             return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(carId));
@@ -69,6 +77,7 @@ namespace Business.Concrete
 
         [SecuredOperation("carImages.update,admin")]
         [ValidationAspect(typeof(CarImageValidator))]
+        [CacheRemoveAspect("ICarImageService.Get")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
             carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.Id == carImage.Id).ImagePath, file);

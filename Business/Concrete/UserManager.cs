@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using Core.Utilities.Results.Abstract;
@@ -22,6 +23,7 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        [CacheAspect]
         public List<OperationClaim> GetClaims(User user)
         {
             return _userDal.GetClaims(user);
