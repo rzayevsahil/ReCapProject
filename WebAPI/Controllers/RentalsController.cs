@@ -37,9 +37,9 @@ namespace WebAPI.Controllers
             var result = _rentalService.GetRentalDetailsDto();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
