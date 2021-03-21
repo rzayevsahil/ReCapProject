@@ -9,6 +9,7 @@ namespace Business.Constants
     public static class Messages
     {
         public static string CarAdded = "Araba eklendi";
+        public static string CarNotFound = "Araba bulunamadı";
         public static string CarDailyPriceInvalid = "Arabanın günlük fiyatı 0'dan büyük olmalıdır";
         public static string CarDeleted= "Araba silindi";
         public static string CarUpdated = "Araba güncellendi";
@@ -47,5 +48,9 @@ namespace Business.Constants
         public static string UserAlreadyExists = "Kullanıcı mevcut";
 
         public static string AccessTokenCreated = "Token oluşturuldu";
+
+        public static string CarImageAdded = "Resim başarıyla eklendi";
+        public static string CarImageDeleted = "Resim başarıyla silindi";
+        public static string CarImageUpdated = "Resim başarıyla güncellendi";
     }
 }

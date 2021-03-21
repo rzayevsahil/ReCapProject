@@ -86,15 +86,25 @@ namespace Business.Concrete
         }
 
         [PerformanceAspect(5)]
-        public IDataResult<List<Car>> GetCarByBrandId(int brandId)
+        public IDataResult<List<CarDetailDto>> GetCarByBrandId(int brandId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId ));
+            var result=_carDal.GetCarDetails(c => c.BrandId == brandId);
+            if (result.Count==0)
+            {
+                return new ErrorDataResult<List<CarDetailDto>>(new List<CarDetailDto>(), Messages.CarNotFound);
+            }
+            return new SuccessDataResult<List<CarDetailDto>>(result);
         }
 
         [PerformanceAspect(5)]
-        public IDataResult<List<Car>> GetCarByColorId(int colorId)
+        public IDataResult<List<CarDetailDto>> GetCarByColorId(int colorId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == colorId));
+            var result = _carDal.GetCarDetails(c => c.ColorId == colorId);
+            if (result.Count == 0)
+            {
+                return new ErrorDataResult<List<CarDetailDto>>(new List<CarDetailDto>(), Messages.CarNotFound);
+            }
+            return new SuccessDataResult<List<CarDetailDto>>(result);
         }
 
         [CacheAspect]
@@ -110,6 +120,18 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
+
+
+        public IDataResult<List<CarDetailDto>> CarListBrandIdColorId(int brandId,int colorId)
+        {
+            var results=_carDal.GetCarDetails(c=>c.ColorId==colorId && c.BrandId==brandId);
+            if (results.Count == 0)
+            {
+                return new ErrorDataResult<List<CarDetailDto>>(new List<CarDetailDto>());
+            }
+            return new SuccessDataResult<List<CarDetailDto>>(results);
+        }
+
 
         [TransactionScopeAspect]
         public IResult AddTransactionalTest(Car car)
