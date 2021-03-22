@@ -90,7 +90,7 @@ namespace WebAPI.Controllers
         public IActionResult CarListBrandIdColorId(int brandId,int colorId )
         {
             var result = _carService.CarListBrandIdColorId(brandId, colorId);
-            //var results = _carImageService.GetCarDtoIamgeList(carList.Data);
+            //var results = _carImageService.GetCarDtoImageList(carList.Data);
             return Ok(result);
         }
 
@@ -128,6 +128,16 @@ namespace WebAPI.Controllers
         }
 
 
+        [HttpGet("getcardetailbycarid")]
+        public IActionResult GetCarDetailByCarId(int carId)
+        {
+            var result = _carService.GetCarDetailByCarId(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
     }
 }

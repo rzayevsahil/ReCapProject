@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\images\0bd2164c-bb0a-4262-b908-04c8640ced47_2_28_2021.jpg" />
     <None Include="wwwroot\images\29e59136-9487-4fd7-aead-6ec45257a523_3_1_2021.jpg" />
     <None Include="wwwroot\images\89326b19-7475-4933-bee8-d0c5386f93f0_2_28_2021.jpg" />
     <None Include="wwwroot\images\c4b00bb4-8ac0-4b55-b69a-39f5584908fe_3_1_2021.jpg" />

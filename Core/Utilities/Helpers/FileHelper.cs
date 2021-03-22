@@ -30,21 +30,19 @@ namespace Core.Utilities.Helpers
 
         public static void Delete(string path)
         {
-            File.Delete(path);
+            string path2 = Environment.CurrentDirectory + @"\wwwroot";
+            File.Delete(path2+path);
         }
 
         public static string Update(string sourcePath,IFormFile file)
         {
-            var result = newPath(file);
+           var result= Add(file);
             if (sourcePath.Length > 0)
             {
-                using (var stream = new FileStream(result, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
+               Delete(sourcePath);
             }
 
-            File.Delete(sourcePath);
+           
             return result;
         }
 

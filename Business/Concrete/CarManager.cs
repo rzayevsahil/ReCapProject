@@ -41,9 +41,8 @@ namespace Business.Concrete
             //{
             //    return new ErrorResult(Messages.CarDailyPriceInvalid);
             //}
-
-            
             //ValidationTool.Validate(new CarValidator(), car);
+
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -133,6 +132,17 @@ namespace Business.Concrete
         }
 
 
+        public IDataResult<List<CarDetailDto>> GetCarDetailByCarId(int carId)
+        {
+            var result = _carDal.GetCarDetails(c => c.Id == carId);
+            if (result.Count == 0)
+            {
+                return new ErrorDataResult<List<CarDetailDto>>(new List<CarDetailDto>(), Messages.CarNotFound);
+            }
+            return new SuccessDataResult<List<CarDetailDto>>(result);
+        }
+
+
         [TransactionScopeAspect]
         public IResult AddTransactionalTest(Car car)
         {
@@ -150,5 +160,7 @@ namespace Business.Concrete
                 return null;
             }
         }
+
+        
     }
 }

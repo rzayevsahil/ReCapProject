@@ -113,19 +113,18 @@ namespace Business.Concrete
         private IDataResult<List<CarImage>> CheckIfCarImageNull(int carId)
         {
             string path = "/images/null.jpg";
-            CarImage carImage = new CarImage();
             var result = _carImageDal.GetAll(c => c.CarId == carId).ToList();
             if (result.Count == 0)
             {
                 //return new List<CarImage> { new CarImage { CarId = carId, ImagePath = path, Date = DateTime.Now } };
-                List<CarImage> carimage = new List<CarImage>();
-                carimage.Add(new CarImage
+                List<CarImage> carImage = new List<CarImage>();
+                carImage.Add(new CarImage
                 {
                     CarId = carId,
                     Date = DateTime.Now,
                     ImagePath = path,
                 });
-                return new SuccessDataResult<List<CarImage>>(carimage);
+                return new SuccessDataResult<List<CarImage>>(carImage);
             }
             return new SuccessDataResult<List<CarImage>>(result);
             //_carImageDal.Update(carImage);
@@ -158,7 +157,7 @@ namespace Business.Concrete
         {
             try
             {
-                File.Delete(carImage.ImagePath);
+                FileHelper.Delete(carImage.ImagePath);
             }
             catch (Exception exception)
             {
