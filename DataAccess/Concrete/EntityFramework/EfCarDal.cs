@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 IQueryable<CarDetailDto> result = 
                     from car in filter is null ? context.Cars : context.Cars.Where(filter)
-                            join brand in context.Brands
+                             join brand in context.Brands
                              on car.BrandId equals brand.BrandId
                              join color in context.Colors
                              on car.ColorId equals color.ColorId
@@ -29,7 +29,11 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = color.ColorName,
                                  DailyPrice = car.DailyPrice,
                                  Description=car.Description,
-                                 ModelYear=car.ModelYear };
+                                 ModelYear=car.ModelYear,
+                                 BrandId=brand.BrandId,
+                                 ColorId=color.ColorId,
+                                 ImagePath=(from i in context.CarImages where i.CarId==car.Id select i.ImagePath).FirstOrDefault()
+                             };
 
                 return result.ToList();
             }
