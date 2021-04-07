@@ -39,6 +39,8 @@ namespace WebAPI
         {
             services.AddControllers();
 
+            services.AddControllers().AddNewtonsoftJson();
+
             services.AddCors();
 
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -74,7 +76,10 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4201").AllowAnyHeader());
+
+            app.ConfigureCustomExceptionMiddleware();
+
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
 
             app.UseHttpsRedirection();
 

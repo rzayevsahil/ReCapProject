@@ -8,6 +8,7 @@ using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -52,12 +53,18 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == id));
         }
 
-        [CacheAspect]
-        [PerformanceAspect(10)]
-        public IDataResult<List<Customer>> GetCustomers()
+        public IDataResult<List<CustomerDetailDto>> GetCustomerDetailById(int customerId)
         {
-            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
+            return new SuccessDataResult<List<CustomerDetailDto>>
+                (_customerDal.GetCustomerDetails(c => c.Id == customerId));
         }
+
+        public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
+        {
+            return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetails());
+        }
+
+        
 
         [CacheRemoveAspect("ICustomerService.Get")]
         public IResult Update(Customer customer)

@@ -28,7 +28,7 @@ namespace ConsoleUI
             foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine("{0} - {1} - {2} - {3} - {4} - {5}",
-                    car.CarId,car.ColorName,car.BrandName,car.ModelYear,car.Description,car.DailyPrice);
+                    car.Id,car.ColorName,car.BrandName,car.ModelYear,car.Description,car.DailyPrice);
             }
 
             //Brand brand1 = new Brand {BrandName="Tofash"};

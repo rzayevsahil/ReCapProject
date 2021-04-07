@@ -17,7 +17,8 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (ReCapDbContext context = new ReCapDbContext())
             {
-                var result = from rental in context.Rentals
+                var result = from rental in filter == null ? 
+                             context.Rentals : context.Rentals.Where(filter)
                              join car in context.Cars
                              on rental.CarId equals car.Id
                              join customer in context.Customers
@@ -37,7 +38,11 @@ namespace DataAccess.Concrete.EntityFramework
                                  CustomerId=customer.Id,
                                  CustomerFirstName=user.FirstName,
                                  CustomerLastName = user.LastName,
-                                 ReturnDate= rental.ReturnDate,
+                                 CompanyName=customer.CompanyName,
+                                 CarModelYear=car.ModelYear,
+                                 CarDailyPrice=car.DailyPrice,
+                                 CarDescription=car.Description,
+                                 ReturnDate = rental.ReturnDate,
                                  RentDate=rental.RentDate
                              };
 
