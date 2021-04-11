@@ -32,7 +32,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  ModelYear=car.ModelYear,
                                  BrandId=brand.BrandId,
                                  ColorId=color.ColorId,
-                                 ImagePath=(from i in context.CarImages where i.CarId==car.Id select i.ImagePath).FirstOrDefault()
+                                 ImagePath=(from i in context.CarImages where i.CarId==car.Id select i.ImagePath).FirstOrDefault(),
+                                 FindexPoint=car.FindexPoint
                              };
 
                 return result.ToList();

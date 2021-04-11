@@ -13,6 +13,5 @@ namespace Entities.Concrete
         public string CardNumber { get; set; }
         public string CardCvv { get; set; }
         public string CardExpiryDate { get; set; }
-        public int MoneyInTheCard { get; set; }
     }
 }

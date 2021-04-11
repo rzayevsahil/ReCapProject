@@ -57,5 +57,9 @@ namespace Business.Constants
         public static string RentalUndeliveredCar = "Araç henüz teslim edilmedi";
         public static string RentalListed = "Kiralamalar Lİstelendi";
         public static string RentedCarAlreadyExists = "Bu kiralık araba zaten var";
+
+        public static string CardAdded = "Kart eklendi";
+
+        public static string CustomerUpdated = "Müşteri güncellendi";
     }
 }

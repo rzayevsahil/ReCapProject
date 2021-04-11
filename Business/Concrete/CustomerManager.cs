@@ -46,6 +46,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
         }
 
+        public IDataResult<CustomerDetailDto> GetByEmail(string email)
+        {
+            var getByEmail = _customerDal.GetByEmail(user => user.Email == email);
+            return new SuccessDataResult<CustomerDetailDto>(getByEmail);
+        }
+
         [CacheAspect]
         [PerformanceAspect(5)]
         public IDataResult<Customer> GetById(int id)

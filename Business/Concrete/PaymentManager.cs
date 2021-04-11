@@ -23,8 +23,14 @@ namespace Business.Concrete
         [CacheRemoveAspect("IPaymentService.Get")]
         public IResult Add(Payment payment)
         {
+            var result = CheckCard(payment);
+
+            if (result)
+            {
+                return new SuccessResult();
+            }
             _paymentDal.Add(payment);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CardAdded);
         }
 
         [CacheRemoveAspect("IPaymentService.Get")]
@@ -70,6 +76,23 @@ namespace Business.Concrete
                 return new ErrorResult();
             }
             return new SuccessResult();
+        }
+
+        private bool CheckCard(Payment card)
+        {
+            var beforeExist = _paymentDal.GetAll(c => c.CustomerId == card.CustomerId);
+
+            if (beforeExist.Count > 0)
+            {
+                var currentCard = _paymentDal.Get(c => c.CardNumber == card.CardNumber);
+
+                if (currentCard != null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         //public IResult IsCardExist(Payment payment)
