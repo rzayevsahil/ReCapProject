@@ -14,12 +14,13 @@
 ---
 
 # Katmanlar
-* ### Öncelikler Proje 6 katmandan oluşmaktadır: Business, DataAccess, Entities, ConcoleUI, Core, WebAPI
+* ### Öncelikle Proje 6 katmandan oluşmaktadır: Business, DataAccess, Entities, ConcoleUI, Core, WebAPI
 ![katmanlar](https://user-images.githubusercontent.com/58303745/115146995-0bce9e80-a06a-11eb-9373-54860d150a44.jpg)
 ---
 ### 1.<a href="https://github.com/rzayevsahil/ReCapProject/tree/master/Business" target="blank">_Business Katmanı_</a>- Burada işle ilgili(iş kuralları) kodlar yer alır.Bu katman Abstract ve Concrete isimli klasörlerden oluşur.Abstract içinde soyut(yani interfaceler), Concrete içinde somut(yani class'lar) nesneler yer alır.
 
 ![business](https://user-images.githubusercontent.com/58303745/115147010-17ba6080-a06a-11eb-8fd3-8518254dfef7.png)
+* Sarı kutucuk - *NuGet paketi* --> Başkalarının yazdığı kodları(paket diyoruz) kullanıyoruz.Bu kodların ortak tutulduğu ve yönetildiği ortamın adına denir.
 * Kırmızı kutucuk - Business katmanının referans aldığı katmanlar
 * Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
 * Mavi kutucuk - Abstract klasörü içindeki interface'lerin implemente edildiği yer
@@ -31,11 +32,11 @@
 * Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
 * Mavi kutucuk - Abstract klasörü içindeki interface'lerin implemente edildiği yer.Aynı zamanda burda _IEntityFramework_ isimli klasörde biz veri tabanı nesneleriyle(kısaca tablolarla) yazdığımız kodlar arasında bağ kuruyoruz. 
 > _EntityFramework_ --> Veri tabanı tablolarıyla Nesne Yönelimli Programlama(OOP) arasında bir köprüdür.
-* Sarı kutucuk - NuGet paketi --> Başkalarının yazdığı kodları(paket diyoruz) kullanıyoruz.Bu kodların ortak tutulduğu ve yönetildiği ortamın adına denir. 
+* Sarı kutucuk - *NuGet paketi* --> Başkalarının yazdığı kodları(paket diyoruz) kullanıyoruz.Bu kodların ortak tutulduğu ve yönetildiği ortamın adına denir. 
 ---
 ### 3.<a href="https://github.com/rzayevsahil/ReCapProject/tree/master/Entities" target="blank">_Entities Katmanı_</a> - Veri tabanı nesneleri için oluşturulmuş olan bu katman Abstract(soyut) ve Concrete(somut) isimli klasörlerden oluşur.
-![entities](https://user-images.githubusercontent.com/58303745/115146988-02453680-a06a-11eb-8086-69092ed38809.png)
-* Yeşil kutucuk - Abstract klasörü içinde yer alan _interface'ler_
+![entities](https://user-images.githubusercontent.com/58303745/115147407-e04cb380-a06b-11eb-9a47-6df5a980714f.png)
+* Sarı kutucuk - *NuGet paketi* --> Başkalarının yazdığı kodları(paket diyoruz) kullanıyoruz.Bu kodların ortak tutulduğu ve yönetildiği ortamın adına denir. 
 * Mavi kutucuk - Abstract klasörü içindeki interface'lerin implemente edildiği yer
 ---
 ### 4.<a href="https://github.com/rzayevsahil/ReCapProject/tree/master/ConsoleUI" target="blank">_ConsoleUI Katmanı_</a> - Yaptığımız işlemlerin sonuçlarını göreceğimiz bir katman
@@ -45,13 +46,9 @@
 ---
 ### 5.<a href="https://github.com/rzayevsahil/ReCapProject/tree/master/Core" target="blank">_Core Katmanı_</a> - Yaptığımız işlemlerin sonuçlarını göreceğimiz bir katman
 ![core](https://user-images.githubusercontent.com/58303745/115147012-18eb8d80-a06a-11eb-9c94-ccb7fe4f67bd.jpg)
-* Kırmızı kutucuk - ConsoleUI katmanının referans aldığı katmanlar
-* Turuncu kutucuk - Bura main kısmıdır.Yani en sonda uyguladığımız işlemlerin sonucunu buradan görüyoruz.
 ---
-### 5.<a href="https://github.com/rzayevsahil/ReCapProject/tree/master/_WebAPI" target="blank">_WebAPI Katmanı_</a> - Yaptığımız işlemlerin sonuçlarını göreceğimiz bir katman
+### 6.<a href="https://github.com/rzayevsahil/ReCapProject/tree/master/_WebAPI" target="blank">_WebAPI Katmanı_</a> - Yaptığımız işlemlerin sonuçlarını göreceğimiz bir katman
 ![webapi](https://user-images.githubusercontent.com/58303745/115147008-14bf7000-a06a-11eb-9adb-e7375dc23bc3.jpg)
-* Kırmızı kutucuk - ConsoleUI katmanının referans aldığı katmanlar
-* Turuncu kutucuk - Bura main kısmıdır.Yani en sonda uyguladığımız işlemlerin sonucunu buradan görüyoruz.
 ---
 ---
 ---
