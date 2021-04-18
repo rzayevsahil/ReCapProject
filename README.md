@@ -1,6 +1,10 @@
 ![ReCapProject](https://user-images.githubusercontent.com/58303745/107164213-7b1f7680-69c7-11eb-898d-aba8f0b66757.jpg)
 ---
 ---
+- [![Twitter Badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)]() sahilrzayev200d@gmail.com
+- [![Linkedin Badge](https://img.shields.io/badge/sahilrzayev-follow%20on%20linkedin-black?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sahilrzayev)
+---
+---
 ---
 **Bu proje _Araba Kiralama Sistemi_ ile ilgili bir projedir.Proje hem Çok katmanlı, hem Kurumsal Mimariler, hem de SOLID prensiplerine dayalı bir projedir.Önümüzdeki süreçlerde de projeye eklemeler yapılarak daha güzel bir proje haline getirilecektir.Kampda verilen adımlara uygun olarak gerçeklekleştirdiğim bu projeyi yakından inceleyelim.**
 ---
